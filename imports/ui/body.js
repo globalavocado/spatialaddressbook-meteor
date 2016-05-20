@@ -26,6 +26,9 @@ Template.map.rendered = function() {
 
   map.on('dblclick', function(event) {
     Markers.insert({latlng: event.latlng});
+    var longitude = event.latlng.lng;
+    var latitude = event.latlng.lat;
+    console.log(longitude, latitude);
   });
 
   var query = Markers.find();
