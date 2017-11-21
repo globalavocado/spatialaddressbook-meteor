@@ -16,13 +16,13 @@ var Markers = new Meteor.Collection('markers');
 Meteor.subscribe('markers');
 
 Template.map.rendered = function() {
-  L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images';
+  L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images/';
 
   var map = L.map('map', {
     doubleClickZoom: false
   }).setView(new L.LatLng(48.71, 14.06), 5);
 
-  L.tileLayer.provider('Thunderforest.Outdoors').addTo(map);
+  L.tileLayer.provider('Esri.WorldStreetMap').addTo(map);
 
   map.on('dblclick', function(event) {
     Markers.insert({latlng: event.latlng});
