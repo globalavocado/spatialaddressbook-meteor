@@ -31,11 +31,13 @@ Template.map.rendered = function() {
     console.log(longitude, latitude);
   });
 
+// add with double click and remove with single click
+
   var query = Markers.find();
   query.observe({
     added: function (document) {
       var marker = L.marker(document.latlng).addTo(map)
-        .on('click', function(event) {
+        .on('contextmenu', function(event) {
           map.removeLayer(marker);
           Markers.remove({_id: document._id});
         });
@@ -54,4 +56,3 @@ Template.map.rendered = function() {
     }
   });
 };
-    

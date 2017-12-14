@@ -7,13 +7,33 @@
 
     <main>
 
-      {{> map}}
+      {{> page}}
 
     </main>
   </div>
 
 </body>
 
+<template name="page">
+
+  <div class="container">
+      <div class="row">
+          <div class="span6">
+            {{> map}}
+            <div class="pagination-centered">
+              <em> 
+                <p>double-click to add a marker</p> 
+                <p>single-click a marker for more information</p>
+                <p>right-click to remove a marker</p>
+              </em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</template>
+
 <template name="map">
-      <div id="map"></div>
+  <div id="map">
+  </div>
 </template>
